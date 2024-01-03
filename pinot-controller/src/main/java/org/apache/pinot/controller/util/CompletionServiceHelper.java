@@ -89,6 +89,8 @@ public class CompletionServiceHelper {
       try {
         multiHttpRequestResponse = completionService.take().get();
         URI uri = multiHttpRequestResponse.getURI();
+        LOGGER.info(String.toString(uri));
+        LOGGER.info(String.toString(uri.toURL()));
         String instance =
             _endpointsToServers.get(String.format("%s://%s:%d", uri.getScheme(), uri.getHost(), uri.getPort()));
         int statusCode = multiHttpRequestResponse.getResponse().getStatusLine().getStatusCode();
